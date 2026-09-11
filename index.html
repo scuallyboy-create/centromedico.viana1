@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<script src="site-status.js"></script>
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#09263A">
+<title>Viana I — Ana Paula | Em actualização</title>
+<style>
+:root{--navy:#09263A;--blue:#175B7D;--green:#278E6F}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%}
+body{overflow:hidden;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#fff;background:var(--navy)}
+.page{position:relative;width:100vw;height:100vh;min-height:560px;display:grid;place-items:center;isolation:isolate}
+.page:before{
+ content:"";position:absolute;inset:0;z-index:-2;
+ background-image:
+ linear-gradient(90deg,rgba(9,38,58,.78) 0%,rgba(9,38,58,.50) 52%,rgba(9,38,58,.24) 100%),
+ url("fundo.jpg");
+ background-size:cover;background-position:center;
+ transform:scale(1.025);
+ animation:heroIn 1.7s cubic-bezier(.2,.75,.2,1) both, subtleZoom 14s ease-in-out 1.7s infinite alternate;
+}
+.page:after{
+ content:"";position:absolute;inset:0;z-index:-1;
+ background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(9,38,58,.08));
+ pointer-events:none;
+}
+.content{
+ width:min(820px,90vw);text-align:center;padding:40px 20px;
+ animation:contentIn 1.1s .25s cubic-bezier(.2,.75,.2,1) both;
+ color:#fff;
+}
+.eyebrow{
+ display:inline-flex;align-items:center;gap:9px;
+ font-size:.72rem;letter-spacing:.22em;font-weight:800;
+ color:#dff4ed;text-transform:uppercase;margin-bottom:22px;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+h1{
+ margin:0 auto 18px;font-size:clamp(2.2rem,6vw,5.2rem);
+ line-height:.98;letter-spacing:-.045em;font-weight:800;
+ text-shadow:0 4px 20px rgba(255,255,255,.5);
+}
+h1 span{color:var(--green)}
+.message{
+ margin:0 auto;max-width:650px;font-size:clamp(1rem,1.8vw,1.2rem);
+ line-height:1.65;color:rgba(255,255,255,.88);font-weight:500;
+}
+.status{
+ width:min(330px,70vw);height:5px;margin:30px auto 0;
+ border-radius:99px;background:rgba(23,91,125,.16);overflow:hidden;
+}
+.status i{
+ display:block;height:100%;width:58%;border-radius:inherit;
+ background:var(--green);box-shadow:0 0 18px rgba(39,142,111,.35);
+ animation:loading 2.4s ease-in-out infinite alternate;
+}
+.brand{
+ position:absolute;left:50%;bottom:30px;transform:translateX(-50%);
+ font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+ color:rgba(255,255,255,.72);white-space:nowrap;font-weight:600;
+}
+.brand strong{color:var(--green)}
+.accent{
+ position:absolute;left:0;bottom:0;width:100%;height:3px;
+ background:linear-gradient(90deg,var(--green),var(--blue),var(--green));
+ transform-origin:left;animation:progress 1.9s ease both;
+}
+@keyframes heroIn{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:scale(1.025)}}
+@keyframes subtleZoom{from{transform:scale(1.025)}to{transform:scale(1.07)}}
+@keyframes contentIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes loading{from{width:42%}to{width:78%}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(39,142,111,.5)}50%{box-shadow:0 0 0 7px rgba(39,142,111,0)}}
+@media(max-width:600px){
+ .page:before{
+  background-image:
+  linear-gradient(180deg,rgba(9,38,58,.62),rgba(9,38,58,.38)),
+  url("fundo.jpg");
+  background-position:center;
+ }
+ .content{padding:40px 18px 80px}
+ h1{font-size:clamp(2.3rem,12vw,3.6rem)}
+ .message{font-size:1rem;line-height:1.55}
+ .brand{bottom:19px;font-size:.62rem}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}}
+</style>
+</head>
+<body>
+<main class="page">
+<section class="content">
+<div class="eyebrow"><span class="dot"></span> VIANA I — ANA PAULA</div>
+<h1>Estamos a preparar<br><span>algo melhor.</span></h1>
+<p class="message">O nosso espaço digital está temporariamente em actualização. Em breve estaremos de volta com uma experiência mais simples, moderna e acessível.</p>
+<div class="status" aria-label="Actualização em andamento"><i></i></div>
+</section>
+<div class="brand">© 2026 <strong>Kutxi Tec</strong> — Todos os direitos reservados</div>
+<div class="accent"></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-AO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portal do Profissional — Viana I</title><link rel="stylesheet" href="portal.css"></head>
+<body>
+<header class="top"><a class="brand" href="index.html"><span class="mark">V</span><span><strong>VIANA I — ANA PAULA</strong><small>Portal do Profissional</small></span></a>
+<div class="user"><img id="avatar" src="assets/placeholder.svg" alt=""><div><strong id="userName">Profissional</strong><small id="userRole">—</small></div><button id="logout">Sair ↗</button></div></header>
+<main><div id="portalError" class="alert" hidden></div>
+<section class="welcome"><div><span class="eyebrow">Área reservada</span><h1>Bom trabalho. <em>Hoje conta.</em></h1><p id="todayDate"></p></div>
+<div class="today"><small>Estado de hoje</small><strong id="todayStatus">A carregar…</strong><span id="shiftTime">—</span></div></section>
+<section class="grid">
+<article class="panel"><span class="kicker">01 — Escala</span><h2>A minha disponibilidade</h2>
+<form id="scheduleForm"><label>Data<input name="work_date" type="date" required></label><div class="two"><label>Entrada<input name="start_time" type="time"></label><label>Saída<input name="end_time" type="time"></label></div>
+<label>Estado<select name="status"><option value="on_duty">Em serviço</option><option value="off">Fora de serviço</option><option value="absent">Ausente</option><option value="leave">Em licença</option></select></label>
+<label>Nota<input name="notes"></label><button class="primary">Actualizar escala →</button><small id="scheduleMessage"></small></form></article>
+
+<article class="panel" id="patientModule" hidden><div class="panel-head"><div><span class="kicker">02 — Utentes</span><h2>Os meus pacientes</h2></div><strong id="patientCount">00</strong></div>
+<div id="patientList"></div><details><summary>+ Registar paciente</summary><form id="patientForm"><label>Nome completo<input name="full_name" required></label><div class="two"><label>Nascimento<input name="birth_date" type="date"></label><label>Sexo<select name="sex"><option value="">—</option><option>F</option><option>M</option></select></label></div><label>Telefone<input name="phone"></label><label>Morada<input name="address"></label><button class="primary">Registar paciente</button><small id="patientMessage"></small></form></details></article>
+
+<article class="panel" id="medicalModule" hidden><span class="kicker">03 — Medicina</span><h2>Área clínica</h2><p>Área reservada a médicos. Dados clínicos não aparecem no perfil público.</p></article>
+</section></main>
+<footer>© 2026 Viana I · Tecnologia <strong>Kutxi Tec</strong></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="viana-auth.js"></script><script src="portal.js"></script>
+</body></html>

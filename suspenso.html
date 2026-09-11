@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-AO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Site temporariamente indisponível — Viana I</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f5f7f7;
+      --surface:#ffffff;
+      --text:#0b2b2b;
+      --muted:#667676;
+      --line:#dfe7e7;
+      --accent:#0b2b2b;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;font-family:"DM Sans",sans-serif}
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:
+        linear-gradient(rgba(7,30,43,.72),rgba(7,30,43,.78)),
+        url("fundo.jpg") center/cover fixed,
+        var(--bg);
+      color:var(--text);
+      padding:24px;
+    }
+
+    .card{
+      width:min(680px,100%);
+      text-align:center;
+      background:rgba(255,255,255,.93);backdrop-filter:blur(5px);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:56px 34px 42px;
+      box-shadow:0 24px 70px rgba(11,43,43,.09);
+      animation:cardIn .7s ease both;
+    }
+
+    .mark{
+      width:76px;
+      height:76px;
+      margin:0 auto 28px;
+      display:grid;
+      place-items:center;
+      border-radius:22px;
+      background:var(--accent);
+      color:#fff;
+      font:800 30px/1 "Manrope",sans-serif;
+      animation:float 3s ease-in-out infinite;
+    }
+
+    .eyebrow{
+      margin:0 0 12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:11px;
+      font-weight:700;
+      color:var(--muted);
+    }
+
+    h1{
+      margin:0 auto 18px;
+      max-width:560px;
+      font:800 clamp(30px,6vw,48px)/1.05 "Manrope",sans-serif;
+      letter-spacing:-.035em;
+    }
+
+    p{
+      margin:0 auto;
+      max-width:540px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.7;
+    }
+
+    .pulse{
+      width:8px;
+      height:8px;
+      margin:28px auto 20px;
+      border-radius:50%;
+      background:var(--text);
+      box-shadow:0 0 0 0 rgba(11,43,43,.25);
+      animation:pulse 2s infinite;
+    }
+
+    footer{
+      margin-top:34px;
+      padding-top:22px;
+      border-top:1px solid var(--line);
+      color:#7b8989;
+      font-size:12px;
+    }
+
+    footer strong{color:var(--text)}
+
+    @keyframes cardIn{
+      from{opacity:0;transform:translateY(18px) scale(.98)}
+      to{opacity:1;transform:none}
+    }
+
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-6px)}
+    }
+
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(11,43,43,.25)}
+      70%{box-shadow:0 0 0 14px rgba(11,43,43,0)}
+      100%{box-shadow:0 0 0 0 rgba(11,43,43,0)}
+    }
+
+    @media(max-width:520px){
+      .card{padding:42px 22px 30px;border-radius:22px}
+      .mark{width:66px;height:66px;border-radius:18px;margin-bottom:24px}
+      p{font-size:15px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important}
+    }
+  </style>
+
+  <script src="site-status.js"></script>
+</head>
+
+<body>
+  <main class="card" aria-labelledby="titulo">
+    <div class="mark" aria-hidden="true">V</div>
+
+    <p class="eyebrow">Viana I · Saúde &amp; Cuidado</p>
+
+    <h1 id="titulo">Site temporariamente indisponível</h1>
+
+    <p>
+      Este website encontra-se temporariamente indisponível enquanto
+      concluímos os últimos procedimentos necessários para a sua
+      disponibilização.
+    </p>
+
+    <div class="pulse" aria-hidden="true"></div>
+
+    <footer>
+      © <span id="year"></span> Viana I. Todos os direitos reservados.
+      <br>
+      Tecnologia &amp; soluções digitais por <strong>Kutxi Tec</strong>.
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

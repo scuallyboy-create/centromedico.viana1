@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-AO">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Administração — Viana I</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="backdrop"></div>
+
+<section class="login" id="loginPanel">
+  <div class="login-card">
+    <a class="brand" href="index.html"><span class="mark">V</span><span><strong>VIANA I — ANA PAULA</strong><small>Administração institucional</small></span></a>
+    <div class="rule"></div>
+    <span class="eyebrow">Área reservada · Administração</span>
+    <h1>Gestão com <em>propósito.</em></h1>
+    <p>Profissionais, escalas, estado do website e participação dos utentes num único espaço.</p>
+    <form id="loginForm">
+      <label>E-mail<input id="email" type="email" required autocomplete="email"></label>
+      <label>Palavra-passe<input id="password" type="password" required autocomplete="current-password"></label>
+      <button class="primary" type="submit">Entrar na administração <span>→</span></button>
+      <div id="loginError" class="message"></div>
+    </form>
+  </div>
+</section>
+
+<div class="app" id="adminApp" hidden>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="mark">V</span><span><strong>VIANA I — ANA PAULA</strong><small>Administração institucional</small></span></a>
+  <div class="top-actions"><span id="adminName">Administrador</span><button id="refresh">Actualizar ↻</button><button id="logout">Sair ↗</button></div>
+</header>
+
+<main>
+<section class="intro">
+  <div><span class="eyebrow">Painel administrativo · 01</span><h1>Gestão da <em>unidade.</em></h1><p>O mesmo princípio visual do website público, agora aplicado à gestão interna.</p></div>
+  <div class="site-card"><small>Website público</small><div class="site-row"><strong id="siteLabel">Activo</strong><label class="switch"><input id="siteToggle" type="checkbox"><i></i></label></div><span id="siteMessage">Alteração guardada no Supabase.</span></div>
+</section>
+
+<section class="stats">
+<article><small>Profissionais</small><strong id="employeeCount">00</strong><span>registados</span></article>
+<article><small>Em serviço hoje</small><strong id="dutyCount">00</strong><span>com escala activa</span></article>
+<article><small>Participações</small><strong id="feedbackCount">00</strong><span>sugestões e reclamações</span></article>
+</section>
+
+<section class="block">
+<div class="block-head"><div><span class="eyebrow">02 — Equipa</span><h2>Profissionais</h2><p>Suspender mantém o código do profissional e permite que o QR Code continue a apontar para o perfil correcto.</p></div><input id="employeeSearch" class="search" placeholder="Pesquisar nome, função ou código..."></div>
+<div class="table-wrap"><table><thead><tr><th>Profissional</th><th>Função</th><th>Categoria</th><th>Estado</th><th></th></tr></thead><tbody id="employeeTable"></tbody></table></div>
+</section>
+
+<section class="block">
+<div class="block-head"><div><span class="eyebrow">03 — Participação do utente</span><h2>Sugestões e reclamações</h2></div></div>
+<div id="feedbackList" class="feedback-list"></div>
+</section>
+
+<section class="security block">
+<div><span class="eyebrow">04 — Segurança</span><h2>Permissões por função</h2><p>O acesso não depende de menus escondidos. O Supabase Row Level Security controla o que cada conta pode consultar e alterar.</p></div>
+<div><strong>RLS</strong><span>Administrador · Médico · Enfermagem · Técnico · Staff</span></div>
+</section>
+</main>
+<footer>© 2026 Viana I · Tecnologia <strong>Kutxi Tec</strong></footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

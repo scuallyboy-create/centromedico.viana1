@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-AO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Perfil profissional — Viana I">
+<title>Perfil profissional — Viana I</title>
+<script src="site-status.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.employee-status-message{max-width:620px;margin:80px auto;padding:48px 28px;text-align:center;background:#fff;border:1px solid #dfe7e7;border-radius:24px;box-shadow:0 20px 60px rgba(11,43,43,.08)}
+.employee-status-icon{width:72px;height:72px;margin:0 auto 24px;border-radius:20px;display:grid;place-items:center;background:#0b2b2b;color:#fff;font:800 28px/1 Manrope,sans-serif}
+.employee-status-message .section-label{margin-bottom:12px;color:#667676;text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:700}
+.employee-status-message h1{margin:0 0 16px;font:800 clamp(28px,5vw,44px)/1.08 Manrope,sans-serif;color:#0b2b2b}
+.employee-status-message p{margin:0 auto 28px;max-width:520px;color:#667676;line-height:1.7}
+.employee-status-message .status-name{font-weight:700;color:#0b2b2b}
+</style>
+</head>
+<body class="employee-page">
+<header class="site-header scrolled">
+  <a class="brand" href="index.html#inicio" aria-label="Viana I — início"><span class="brand-mark">V</span><span><strong>VIANA I</strong><small>Saúde &amp; Cuidado</small></span></a>
+  <a class="header-cta" href="index.html#equipa">← Página principal</a>
+</header>
+
+<main id="profileMain">
+<section class="employee-hero section">
+<div class="employee-breadcrumb"><a href="index.html#equipa">← Viana I / A Nossa Equipa</a><span>Perfil profissional</span></div>
+<div class="employee-layout">
+<div class="employee-photo-wrap"><div class="employee-photo"><img id="employeePhoto" alt="" loading="eager" decoding="async"><span id="employeeNumber"></span></div></div>
+<div class="employee-copy"><div class="section-label">Perfil profissional</div><span class="modal-role" id="employeeRole"></span><h1 id="employeeName"></h1><div class="modal-line"></div><p id="employeeBio"></p><div class="profile-facts employee-facts"><div><small>Categoria</small><strong id="employeeCategory"></strong></div><div><small>Função</small><strong id="employeeFunction"></strong></div><div><small>Identificação</small><strong id="employeeId"></strong></div></div><a class="btn btn-dark" href="index.html#equipa">← Página principal</a></div>
+<aside class="employee-qr"><small>Perfil digital</small><div id="qrcode"></div><p>Este QR Code abre directamente o perfil digital deste profissional e pode ser aplicado no passe.</p></aside>
+</div></section>
+</main>
+
+<footer><div class="brand"><span class="brand-mark">V</span><span><strong>VIANA I</strong><small>Saúde &amp; Cuidado</small></span></div><p>© <span id="year"></span> Viana I. Todos os direitos reservados.</p></footer>
+
+<script src="team-data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function(){
+  const id = new URLSearchParams(location.search).get('id');
+  const p = (window.teamMembers || []).find(x => String(x.id) === String(id));
+  const main = document.getElementById('profileMain');
+  const year = document.getElementById('year');
+  year.textContent = new Date().getFullYear();
+
+  if (!p) {
+    document.title = 'Perfil não encontrado — Viana I';
+    main.innerHTML = '<section class="employee-status-message"><div class="employee-status-icon">?</div><div class="section-label">Viana I · Saúde &amp; Cuidado</div><h1>Perfil não encontrado</h1><p>Este perfil não foi localizado ou o endereço está incompleto.</p><a class="btn btn-dark" href="index.html#equipa">← Página principal</a></section>';
+    return;
+  }
+
+  if (p.status === 'suspended') {
+    document.title = 'Funcionário suspenso — Viana I';
+    const safeName = String(p.name || 'Este profissional').replace(/[&<>"']/g, function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]});
+    main.innerHTML = '<section class="employee-status-message"><div class="employee-status-icon">V</div><div class="section-label">Viana I · A Nossa Equipa</div><h1>Funcionário suspenso</h1><p>O perfil de <span class="status-name">'+safeName+'</span> encontra-se temporariamente suspenso e não está disponível para consulta neste momento.</p><a class="btn btn-dark" href="index.html#equipa">← Página principal</a></section>';
+    return;
+  }
+
+  if (p.status !== 'ready') {
+    document.title = 'Perfil indisponível — Viana I';
+    main.innerHTML = '<section class="employee-status-message"><div class="employee-status-icon">V</div><div class="section-label">Viana I · A Nossa Equipa</div><h1>Perfil indisponível</h1><p>Este perfil não está disponível para consulta neste momento.</p><a class="btn btn-dark" href="index.html#equipa">← Página principal</a></section>';
+    return;
+  }
+
+  const photo=document.getElementById('employeePhoto');
+  const name=document.getElementById('employeeName');
+  const role=document.getElementById('employeeRole');
+  const bio=document.getElementById('employeeBio');
+  const category=document.getElementById('employeeCategory');
+  const fn=document.getElementById('employeeFunction');
+  const num=document.getElementById('employeeNumber');
+  const eid=document.getElementById('employeeId');
+
+  document.title=p.name+' — Viana I';
+  photo.src=p.photo||'assets/placeholder.svg';
+  photo.alt=p.name;
+  name.textContent=p.name;
+  role.textContent=p.role||p.category;
+  bio.textContent=p.bio||'Perfil profissional a completar com os dados oficiais da instituição.';
+  category.textContent=p.category||'—';
+  fn.textContent=p.function||'A completar';
+  eid.textContent='Viana I · '+p.id;
+  num.textContent=p.id;
+
+  if(window.QRCode){
+    new QRCode(document.getElementById('qrcode'),{
+      text:location.href,width:150,height:150,colorDark:'#0b2b2b',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H
+    });
+  }
+})();
+</script>
+</body>
+</html>
