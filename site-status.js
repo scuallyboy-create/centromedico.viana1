@@ -10,7 +10,7 @@
    de funcionário suspenso.
    ========================================================= */
 
-window.SITE_ATIVO = false;
+window.SITE_ATIVO = true;
 
 (function () {
   const current = location.pathname.split('/').pop() || 'index.html';
