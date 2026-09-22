@@ -1,104 +1,83 @@
 <!doctype html>
-<html lang="pt">
+<html lang="pt-AO">
 <head>
 <meta charset="utf-8">
-<script src="site-status.js"></script>
-
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Viana I / Ana Paula — Saúde, cuidado e excelência.">
 <meta name="theme-color" content="#09263A">
-<title>Viana I — Ana Paula | Em actualização</title>
-<style>
-:root{--navy:#09263A;--blue:#175B7D;--green:#278E6F}
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%}
-body{overflow:hidden;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#fff;background:var(--navy)}
-.page{position:relative;width:100vw;height:100vh;min-height:560px;display:grid;place-items:center;isolation:isolate}
-.page:before{
- content:"";position:absolute;inset:0;z-index:-2;
- background-image:
- linear-gradient(90deg,rgba(9,38,58,.78) 0%,rgba(9,38,58,.50) 52%,rgba(9,38,58,.24) 100%),
- url("fundo.jpg");
- background-size:cover;background-position:center;
- transform:scale(1.025);
- animation:heroIn 1.7s cubic-bezier(.2,.75,.2,1) both, subtleZoom 14s ease-in-out 1.7s infinite alternate;
-}
-.page:after{
- content:"";position:absolute;inset:0;z-index:-1;
- background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(9,38,58,.08));
- pointer-events:none;
-}
-.content{
- width:min(820px,90vw);text-align:center;padding:40px 20px;
- animation:contentIn 1.1s .25s cubic-bezier(.2,.75,.2,1) both;
- color:#fff;
-}
-.eyebrow{
- display:inline-flex;align-items:center;gap:9px;
- font-size:.72rem;letter-spacing:.22em;font-weight:800;
- color:#dff4ed;text-transform:uppercase;margin-bottom:22px;
-}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-h1{
- margin:0 auto 18px;font-size:clamp(2.2rem,6vw,5.2rem);
- line-height:.98;letter-spacing:-.045em;font-weight:800;
- text-shadow:0 4px 20px rgba(255,255,255,.5);
-}
-h1 span{color:var(--green)}
-.message{
- margin:0 auto;max-width:650px;font-size:clamp(1rem,1.8vw,1.2rem);
- line-height:1.65;color:rgba(255,255,255,.88);font-weight:500;
-}
-.status{
- width:min(330px,70vw);height:5px;margin:30px auto 0;
- border-radius:99px;background:rgba(23,91,125,.16);overflow:hidden;
-}
-.status i{
- display:block;height:100%;width:58%;border-radius:inherit;
- background:var(--green);box-shadow:0 0 18px rgba(39,142,111,.35);
- animation:loading 2.4s ease-in-out infinite alternate;
-}
-.brand{
- position:absolute;left:50%;bottom:30px;transform:translateX(-50%);
- font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
- color:rgba(255,255,255,.72);white-space:nowrap;font-weight:600;
-}
-.brand strong{color:var(--green)}
-.accent{
- position:absolute;left:0;bottom:0;width:100%;height:3px;
- background:linear-gradient(90deg,var(--green),var(--blue),var(--green));
- transform-origin:left;animation:progress 1.9s ease both;
-}
-@keyframes heroIn{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:scale(1.025)}}
-@keyframes subtleZoom{from{transform:scale(1.025)}to{transform:scale(1.07)}}
-@keyframes contentIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes loading{from{width:42%}to{width:78%}}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(39,142,111,.5)}50%{box-shadow:0 0 0 7px rgba(39,142,111,0)}}
-@media(max-width:600px){
- .page:before{
-  background-image:
-  linear-gradient(180deg,rgba(9,38,58,.62),rgba(9,38,58,.38)),
-  url("fundo.jpg");
-  background-position:center;
- }
- .content{padding:40px 18px 80px}
- h1{font-size:clamp(2.3rem,12vw,3.6rem)}
- .message{font-size:1rem;line-height:1.55}
- .brand{bottom:19px;font-size:.62rem}
-}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}}
-</style>
+<title>Viana I — Saúde, cuidado e excelência</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="site-status.js"></script>
 </head>
 <body>
-<main class="page">
-<section class="content">
-<div class="eyebrow"><span class="dot"></span> VIANA I — ANA PAULA</div>
-<h1>Estamos a preparar<br><span>algo melhor.</span></h1>
-<p class="message">O nosso espaço digital está temporariamente em actualização. Em breve estaremos de volta com uma experiência mais simples, moderna e acessível.</p>
-<div class="status" aria-label="Actualização em andamento"><i></i></div>
+<header class="site-header" id="header">
+  <a class="brand" href="#inicio" aria-label="Viana I — início"><span class="brand-mark">V</span><span><strong>VIANA I - ANA PAULA</strong><small>Saúde &amp; Cuidado</small></span></a>
+  <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="nav" aria-label="Navegação principal">
+    <a class="active" href="#inicio">Início</a><a href="#instituicao">Instituição</a><a href="#equipa">Equipa</a><a href="#servicos">Serviços</a><a href="#acompanhamentos">Acompanhamentos</a><a href="#feedback">Sugestões e Reclamações</a><a href="#contactos">Contactos</a>
+  </nav>
+  <a class="header-cta" href="#contactos">Fale connosco <span>↗</span></a>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-media"><img src="fundo.jpg" alt="Profissionais de saúde e instalações da unidade"></div><div class="hero-overlay"></div>
+  <div class="hero-content reveal"><div class="eyebrow"><span></span> DMS Viana — Serviço Público de Saúde</div>
+  <h1>Saúde com <em>humanidade.</em><br>Excelência com propósito.</h1>
+  <p>Uma instituição comprometida com cuidados de saúde responsáveis, profissionais e próximos de cada pessoa.</p>
+  <div class="hero-actions"><a class="btn btn-light" href="#instituicao">Conheça a instituição <span>↓</span></a><a class="text-link" href="#equipa">Conhecer a nossa equipa <span>→</span></a></div></div>
+  <div class="hero-meta"><span>01</span><i></i><span>07</span></div><a class="scroll-cue" href="#instituicao"><span>Rolar</span><b>↓</b></a>
 </section>
-<div class="brand">© 2026 <strong>Kutxi Tec</strong> — Todos os direitos reservados</div>
-<div class="accent"></div>
+
+<section class="intro section" id="instituicao"><div class="section-label reveal">01 — A instituição</div><div class="intro-grid">
+<div class="reveal"><h2>Uma visão de saúde construída sobre <span>confiança.</span></h2></div>
+<div class="intro-copy reveal"><p>Trabalhamos para proporcionar uma experiência de cuidado marcada pela competência técnica, responsabilidade e atenção genuína às necessidades de cada paciente.</p><p>O nosso compromisso começa nas pessoas e estende-se à qualidade dos serviços, à ética profissional e à melhoria contínua.</p></div></div>
+<div class="stats reveal-group"><div><strong>01</strong><span>Compromisso<br>com o paciente</span></div><div><strong>02</strong><span>Profissionais<br>dedicados</span></div><div><strong>03</strong><span>Qualidade e<br>responsabilidade</span></div><div><strong>04</strong><span>Cuidado<br>humanizado</span></div></div></section>
+
+<section class="institution-details section" id="sobre-instituicao"><div class="section-label reveal">02 — Sobre a Instituição</div><div class="intro-grid">
+<div class="reveal"><h2>Saúde pública ao serviço da comunidade <span>com confiança.</span></h2></div>
+<div class="intro-copy reveal"><h3>Uma instituição com história</h3><p>Doação da cooperação espanhola de médicos "Medicus Mundi Catalunia".</p><p>Inaugurada em 02 de Abril de 1994 pela Dra. Ana Paula dos Santos.</p><h3>Área</h3><p>Parte construída: 138.914 m²<br>Parte frontal por construir: 5.445 m²<br>Área total: 144.359 m²</p></div></div>
+<div class="section-label reveal">— Limites</div><div class="stats reveal-group"><div><strong>Norte</strong><span>Empresa das Jembas II<br>e estrada de Calumbo</span></div><div><strong>Sul</strong><span>Bairro 1º de Maio<br>e Escola Nacional Penitenciária</span></div><div><strong>Oeste</strong><span>Escola Preparatória e<br>Administração Municipal de Viana</span></div><div><strong>Leste</strong><span>Bairro 4 de Abril<br>e Regedoria</span></div></div></section>
+
+<section class="leadership section" id="equipa"><div class="leadership-head"><div class="reveal"><div class="section-label">03 — A Nossa Equipa</div><h2>Conheça os profissionais que fazem parte da <span>nossa unidade.</span></h2></div><p class="reveal">A Direcção mantém o destaque institucional, enquanto a equipa completa é organizada por áreas para facilitar a consulta dos profissionais.</p></div>
+<div class="team-categories reveal-group" id="teamCategories"></div>
+<div class="team-directory reveal"><div class="team-toolbar"><div class="team-toolbar-copy"><span class="team-kicker">Directório institucional</span><h3 id="teamTitle">Todos os profissionais</h3><p id="teamDescription">Explore a equipa por área, pesquise pelo nome ou consulte a função de cada profissional.</p></div><div class="team-count"><strong id="teamCount">00</strong><span>profissionais<br>encontrados</span></div></div>
+<div class="team-controls" role="search"><label class="team-search"><span>⌕</span><input id="teamSearch" type="search" placeholder="Pesquisar por nome, função ou categoria..." autocomplete="off" aria-label="Pesquisar profissionais"></label><label class="team-sort"><span>Ordenar</span><select id="teamSort" aria-label="Ordenar profissionais"><option value="name-asc">A — Z</option><option value="name-desc">Z — A</option><option value="category">Por categoria</option></select></label></div>
+<div class="team-results-meta"><span id="teamResultsLabel">A apresentar os profissionais</span><button id="teamClear" type="button">Limpar filtros <span>↗</span></button></div>
+<div class="director-grid team-grid" id="teamGrid"></div><div class="team-pagination" id="teamPagination"></div></div>
+<div class="team-note reveal"><span>QR</span><div><strong>Passes profissionais e perfis digitais</strong><p>Cada profissional pode ter um perfil individual ligado ao seu passe através de QR Code. O perfil digital apresenta a identificação, categoria, função e disponibilidade de serviço.</p></div></div></section>
+
+<section class="services section" id="servicos"><div class="section-label reveal">04 — Serviços</div><div class="services-head"><div class="reveal"><h2>Cuidados pensados para <span>cada necessidade.</span></h2></div><p class="reveal">Conheça os principais serviços prestados pela unidade, organizados de forma simples para facilitar a consulta.</p></div>
+<div class="service-grid reveal-group">
+<article class="service-card"><span class="service-number">01</span><div class="service-icon">+</div><h3>Banco de Urgências</h3><p>Atendimento e assistência aos utentes em situações de urgência.</p></article>
+<article class="service-card"><span class="service-number">02</span><div class="service-icon">M</div><h3>Maternidade e Sala de Partos</h3><p>Assistência à gestante e cuidados relacionados ao parto.</p></article>
+<article class="service-card"><span class="service-number">03</span><div class="service-icon">P</div><h3>Pediatria</h3><p>Acompanhamento e cuidados de saúde destinados ao público infantil.</p></article>
+<article class="service-card"><span class="service-number">04</span><div class="service-icon">C</div><h3>Medicina e Enfermagem</h3><p>Consultas, cuidados de enfermagem e procedimentos de rotina.</p></article>
+<article class="service-card"><span class="service-number">05</span><div class="service-icon">V</div><h3>PAV — Vacinação</h3><p>Serviços de vacinação integrados ao Programa Alargado de Vacinação.</p></article>
+<article class="service-card"><span class="service-number">06</span><div class="service-icon">L</div><h3>Laboratório</h3><p>Realização de exames clínicos e apoio ao diagnóstico.</p></article></div>
+<div class="follow-section reveal" id="acompanhamentos"><div class="follow-copy"><div class="section-label">05 — Acompanhamentos</div><h2>Programas de <span>seguimento contínuo.</span></h2><p>Além dos atendimentos gerais, a unidade acompanha utentes integrados em programas específicos de saúde.</p></div>
+<div class="follow-grid"><div class="follow-card"><b>H</b><h3>Hepatite</h3><p>Seguimento e cuidados no âmbito do programa.</p></div><div class="follow-card"><b>T</b><h3>Tuberculose</h3><p>Acompanhamento dos utentes integrados no programa.</p></div><div class="follow-card"><b>H+</b><h3>HIV/SIDA</h3><p>Seguimento e apoio aos utentes em acompanhamento.</p></div><div class="follow-card"><b>PF</b><h3>Planeamento Familiar</h3><p>Orientação e acompanhamento em saúde reprodutiva.</p></div></div></div></section>
+
+<section class="feedback section" id="feedback"><div class="section-label reveal">06 — Participação do utente</div><div class="feedback-grid"><div class="reveal"><h2>A sua opinião ajuda-nos a <span>melhorar.</span></h2><p>Partilhe uma sugestão ou relate uma situação que mereça atenção. A participação dos utentes é parte importante da melhoria contínua.</p><div class="feedback-types"><button type="button" data-feedback-type="Sugestão"><strong>Sugestão</strong><span>Uma ideia ou proposta de melhoria.</span></button><button type="button" data-feedback-type="Reclamação"><strong>Reclamação</strong><span>Uma situação que merece atenção.</span></button></div></div>
+<form class="feedback-form reveal" id="feedback-form"><input type="text" name="website" tabindex="-1" autocomplete="off" class="form-honey" aria-hidden="true"><div class="feedback-form-heading"><span>Formulário de contacto</span><small>Todos os campos marcados com * são obrigatórios.</small></div>
+<label>Tipo de mensagem <span class="required-mark">*</span><select name="type" required><option value="">Escolha entre sugestão ou reclamação</option><option>Sugestão</option><option>Reclamação</option></select></label>
+<div class="identity-grid"><label>Primeiro nome <span class="required-mark">*</span><input name="first_name" required minlength="2" placeholder="Ex.: João"></label><label>Apelido / sobrenome <span class="required-mark">*</span><input name="last_name" required minlength="2" placeholder="Ex.: Silva"></label></div>
+<div class="identity-grid"><label>E-mail <span class="required-mark">*</span><input name="email" type="email" required placeholder="exemplo@email.com"></label><label>Número de telefone <span class="required-mark">*</span><input name="phone" type="tel" required inputmode="tel" pattern="[0-9+()\s-]{9,20}" placeholder="+244 9XX XXX XXX"></label></div>
+<label>Mensagem<textarea name="message" rows="6" required minlength="10" placeholder="Escreva aqui a sua sugestão ou reclamação..."></textarea></label>
+<div class="form-bottom"><span>Não é necessário criar conta nem iniciar sessão.</span><button class="btn btn-dark" type="submit">Enviar mensagem <span>→</span></button></div><div class="feedback-success" id="feedback-success"></div></form></div></section>
+
+<section class="contact section" id="contactos"><div class="section-label reveal">07 — Contactos</div><div class="contact-grid"><div class="reveal"><h2>Estamos aqui<br>para <span>si.</span></h2><p>Entre em contacto com a instituição para obter informações sobre os nossos serviços, acompanhamento e atendimento.</p></div><div class="contact-card reveal"><div><small>Atendimento</small><strong>Informações institucionais</strong></div><div><small>Localização</small><strong>Viana, Angola</strong></div><div><small>Contacto</small><strong>Consulte os canais oficiais</strong></div><a class="btn btn-dark" href="#inicio">Voltar ao início <span>↑</span></a></div></div></section>
 </main>
-</body>
-</html>
+
+<footer><div class="brand"><span class="brand-mark">KT</span><span><strong>KUTXI TEC</strong><small>TECNOLOGIA • DESIGN &amp; SOLUÇÕES DIGITAIS</small></span></div><p>© <span id="year"></span> Viana I. Todos os direitos reservados a <strong>Kutxi Tec</strong>.</p></footer>
+
+<div class="modal" id="profileModal" aria-hidden="true" role="dialog" aria-modal="true"><div class="modal-backdrop" data-close></div><div class="modal-panel"><button class="modal-close" type="button" data-close>×</button><div class="modal-photo"><img id="modalPhoto" src="" alt=""></div><div class="modal-copy"><div class="section-label">Perfil profissional</div><span class="modal-role" id="modalRole"></span><h2 id="modalName"></h2><div class="modal-line"></div><p id="modalBio"></p><div class="profile-facts"><div><small>Categoria</small><strong id="modalCategory"></strong></div><div><small>Função</small><strong id="modalFunction"></strong></div><div><small>Estado</small><strong id="modalAvailability">—</strong></div></div><div class="modal-actions"><a class="btn btn-dark" id="modalProfileLink" href="#">Abrir perfil completo <span>↗</span></a></div></div></div></div>
+
+<script src="supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="team-data.js"></script>
+<script src="script.js"></script>
+</body></html>
